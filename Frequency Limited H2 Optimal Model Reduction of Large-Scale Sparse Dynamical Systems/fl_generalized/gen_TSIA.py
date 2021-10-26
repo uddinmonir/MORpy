@@ -2,7 +2,9 @@
 """
 Created on Sun Sep 20 16:15:22 2020
 
-@author: rabbi
+@author: 
+Dr. Mohammad Monir Uddin
+Md. Tanzim Hossain
 """
 import numpy as np
 from numpy import diag, pi
@@ -70,40 +72,3 @@ def gen_TSIA(E,A,B,C,Ar,Br,Cr,maxiter,tol):
         print("IRKA: No convergence in ", maxiter, " iterations.\n")
     
     return Ar,Br,Cr
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
-
-
-
-
-
