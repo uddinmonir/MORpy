@@ -2,7 +2,9 @@
 """
 Created on Sat Aug 29 18:16:50 2020
 
-@author: Md. Tanzim Hossain
+@author: 
+Dr. Mohammad Monir Uddin
+Md. Tanzim Hossain
 """
 
 import numpy as np
@@ -125,27 +127,3 @@ def gen_Fl_TSIA(E,A,B,C,Ar,Br,Cr,maxiter,tol,w1,w2):
     if iter == maxiter and err > tol:
         print("IRKA: No convergence in ", maxiter, " iterations.\n")
     return Ar,Br,Cr
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
