@@ -1,0 +1,81 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Aug 29 14:27:07 2020
+
+@author: Md. Tanzim Hossain
+"""
+import numpy as np
+from scipy import sparse
+from scipy.sparse.linalg import spsolve
+from scipy.sparse import csc_matrix
+
+def IRKA(E,A,B,C,r,maxiter,tol):
+       
+    n = A.shape[0]
+    m = B.shape[1]
+    p = C.shape[0]
+    S = 100*np.random.rand(r,1)
+    b = np.random.rand(m,r)
+    c = np.random.rand(p,r)
+    
+    for i in range(0,maxiter):
+        S_old = S
+        V = np.zeros((n,r))
+        W = np.zeros((n,r))
+        j = 0
+        
+        
+        while (j < r):
+            #x = (np.multiply(S[j], E) - A)/B
+            pc=S[j]
+            if pc.imag == 0:
+                pc=float(pc.real)
+            else:
+                pc=complex(pc)    
+                
+            Atil_x = pc*E - A
+            X = spsolve(csc_matrix(Atil_x),csc_matrix(B))        
+            Atil_y = E.T*pc - A.T         
+            Y = spsolve(csc_matrix(Atil_y),csc_matrix(C.T))
+            con = np.isreal(pc)
+            print("IRKA 53: ", type(X))
+            if con == False:
+                V[:,j] = X.real
+                W[:,j] = Y.real   
+                V[:,j+1] = X.imag
+                W[:,j+1] = Y.imag 
+                j = j+2
+            else:
+                V[:,j] = X.real
+                W[:,j] = Y.real
+                j = j+1
+                
+                               
+        V, _ = np.linalg.qr(V)
+        W, _ = np.linalg.qr(W)
+        
+        W = csc_matrix(W)
+        V = csc_matrix(V)
+        
+        Er = W.T * E * V
+        Ar = W.T * A * V
+        Br = W.T * B
+        Cr = C * V
+        
+        
+        fullAn = sparse.csr_matrix(Ar).toarray()
+        fullEn = sparse.csr_matrix(Er).toarray()   
+        solve = np.linalg.solve(fullEn,fullAn)     
+        rw0 = np.linalg.eigvals(solve)    
+        S = - rw0    
+        bnorm = np.linalg.norm(S_old) 
+        err = np.linalg.norm(S-S_old) / bnorm
+        
+        print("IRKA step ",i+1, ", conv. crit. = ",err , "\n")
+        
+        if err < tol:
+           break
+    if iter == maxiter and err > tol:
+        print("IRKA: No convergence in ", maxiter, " iterations.\n")
+    return Er,Ar,Br,Cr
+        
