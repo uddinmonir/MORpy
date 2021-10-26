@@ -2,14 +2,9 @@
 """
 Created on Tue Nov 24 01:37:15 2020
 
-@author: rabbi
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Oct  4 12:22:08 2020
-
-@author: rabbi
+@author:
+Dr. Mohammad Monir Uddin
+Md. Tanzim Hossain
 """
 """import necessary libraries"""
 import math
