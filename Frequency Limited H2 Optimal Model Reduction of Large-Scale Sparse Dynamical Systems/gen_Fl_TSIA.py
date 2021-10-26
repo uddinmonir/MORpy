@@ -130,27 +130,3 @@ def gen_Fl_TSIA(E,A,B,C,Ar,Br,Cr,maxiter,tol,w1,w2):
     if iter == maxiter and err > tol:
         print("IRKA: No convergence in ", maxiter, " iterations.\n")
     return Ar,Br,Cr
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
