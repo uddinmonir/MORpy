@@ -2,7 +2,9 @@
 """
 Created on Tue Sep  8 13:26:20 2020
 
-@author: Md. Tanzim Hossain
+@author: 
+Dr. Mohammad Monir Uddin
+Md. Tanzim Hossain
 """
 import numpy as np
 from scipy.sparse.linalg import spsolve
