@@ -2,7 +2,9 @@
 """
 Created on Sat Aug 29 18:16:50 2020
 
-@author: Md. Tanzim Hossain
+@author: 
+Dr. Mohammad Monir Uddin
+Md. Tanzim Hossain
 """
 
 import numpy as np
