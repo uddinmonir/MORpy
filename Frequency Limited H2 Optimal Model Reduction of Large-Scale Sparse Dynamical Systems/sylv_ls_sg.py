@@ -2,7 +2,9 @@
 """
 Created on Sun Aug 30 22:50:07 2020
 
-@author: Md. Tanzim Hossain
+@author: 
+Dr. Mohammad Monir Uddin
+Md. Tanzim Hossain
 """
 import sys
 import scipy as sp
@@ -92,26 +94,3 @@ def sylv_ls_sg(A,E,H,M):
     eigH = diag(S)
     
     return X, eigH
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
